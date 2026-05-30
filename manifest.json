@@ -1,10 +1,11 @@
 {
 	"id": "inkruby",
 	"name": "InkRuby",
-	"version": "1.0.4",
+	"version": "1.0.0",
 	"minAppVersion": "1.11.4",
 	"description": "Renders classical Chinese texts with Pinyin and line-by-line annotations.",
 	"author": "BitFlood",
-	"authorUrl": "https://github.com/BitFlood",
+	"repo": "https://github.com/BitFlood/inkruby",
 	"isDesktopOnly": true
 }
+

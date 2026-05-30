@@ -1,0 +1,143 @@
+/* ==================== 基础容器模块 ==================== */
+.container {
+	background: transparent; /* 透明背景，融入 Obsidian 主题 */
+	width: 100%; /* 宽度撑满父容器 */
+	max-width: none; /* 禁用最大宽度限制，适应宽屏 */
+	padding: 0; /* 清除默认内边距 */
+	margin: 0; /* 清除默认外边距 */
+}
+
+/* ==================== 字体体系模块 ==================== */
+/* 标题统一使用楷体，增强古典气息 */
+.title {
+	font-family: '楷体', 'STKaiti', 'KaiTi', serif;
+}
+
+/* 作者与正文统一使用宋体，保证阅读舒适度 */
+.author,
+.content .poetry-line,
+.content .lc-line {
+	font-family: '宋体', 'SimSun', 'STSong', serif;
+}
+
+/* ==================== 字号层级模块 ==================== */
+/* 标题：最大字号，营造视觉焦点 */
+.title {
+	font-size: 2em; /* 基准字号的 2 倍 */
+	text-align: center; /* 居中对齐，符合传统排版 */
+	line-height: 1.4; /* 紧凑行高，减少留白 */
+	margin-bottom: 0.3em; /* 底部间距缩小，拉近与作者距离 */
+}
+
+/* 作者：较小字号，弱化视觉权重 */
+.author {
+	font-size: 1.2em; /* 基准字号的 1.2 倍 */
+	text-align: center; /* 居中对齐，与标题呼应 */
+	margin-bottom: 1.1em; /* 底部间距，分隔标题与正文 */
+	font-style: italic; /* 斜体，传统署名样式 */
+	letter-spacing: 0.05em; /* 微增字间距，提升精致感 */
+}
+
+/* 正文：适中字号，保证长文阅读性 */
+.content .poetry-line,
+.content .lc-line {
+	font-size: 1.4em; /* 基准字号的 1.4 倍 */
+	line-height: 2; /* 宽松行高，适配拼音标注 */
+	width: 100%; /* 宽度撑满容器 */
+	max-width: none; /* 禁用最大宽度限制 */
+}
+
+/* ==================== 诗歌专用样式模块 ==================== */
+.poetry-line {
+	text-align: center; /* 居中对齐，符合诗歌排版惯例 */
+	margin: 0.4em 0; /* 上下间距缩小，紧凑排列 */
+	letter-spacing: 0.1em; /* 增加字间距，强化韵律感 */
+}
+
+/* ==================== 古文专用样式模块 ==================== */
+.lc-line {
+	text-indent: 2em; /* 首行缩进两字符，符合中文段落规范 */
+	text-align: justify; /* 两端对齐，版面整洁 */
+	word-wrap: break-word; /* 允许长单词换行，防止溢出 */
+	overflow-wrap: break-word; /* 标准换行行为，兼容现代浏览器 */
+	margin: 0.3em 0; /* 上下间距缩小，紧凑排列 */
+	hyphens: auto; /* 自动断词，优化对齐效果 */
+	letter-spacing: 0.03em; /* 微增字间距，提升阅读舒适度 */
+}
+
+/* ==================== 拼音标注模块 ==================== */
+ruby {
+	display: ruby; /* 启用 ruby 布局模型 */
+	line-height: 1; /* 行高紧缩，防止撑大行距 */
+	margin: 0 0.12em; /* 左右间距，避免拼音拥挤 */
+	padding-top: 0.2em; /* 顶部内边距，拉开与上行距离 */
+}
+
+/* 汉字部分：继承父元素样式，保持一致性 */
+ruby rb {
+	font-family: inherit; /* 继承宋体/楷体 */
+	font-size: inherit; /* 继承正文/标题字号 */
+	font-weight: inherit; /* 继承父级字重 */
+	color: inherit; /* 继承文本颜色 */
+	display: block; /* 块级显示，独立成行 */
+	text-align: center; /* 居中对齐 */
+}
+
+/* 拼音部分：小字号、浅色、轻字重 */
+ruby rt {
+	font-family: inherit; /* 继承字体体系 */
+	font-size: 0.65em; /* 拼音字号为汉字的 65% */
+	line-height: 1.2; /* 拼音行高紧凑 */
+	margin-bottom: 0.2em; /* 底部间距，分隔拼音与下一行 */
+	text-align: center; /* 居中对齐 */
+	white-space: nowrap; /* 禁止拼音换行 */
+	letter-spacing: 0.05em; /* 拼音字间距微调 */
+	font-weight: lighter; /* 轻字重，弱化视觉干扰 */
+}
+
+/* ==================== 双下划线注释模块 ==================== */
+.double-underline {
+	text-decoration: underline double; /* 双下划线样式 */
+	text-decoration-thickness: 1px; /* 下划线粗细 1px */
+	text-decoration-color: #aaa; /* 浅灰色下划线 */
+	text-underline-offset: 0.2em; /* 下划线与文字间距 */
+	padding-bottom: 0.05em; /* 底部内边距微调 */
+	cursor: help; /* 帮助光标，提示可交互 */
+	opacity: 0.8; /* 半透明，降低视觉权重 */
+	transition: opacity 0.2s ease; /* 平滑过渡动画 */
+	cursor:
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z'/%3E%3C/svg%3E"),
+		text; /* 使用SVG笔图标 */
+}
+
+/* 悬停状态：增强视觉反馈 */
+.double-underline:hover {
+	opacity: 1; /* 完全不透明 */
+	text-decoration-color: #222; /* 深色下划线，强化提示 */
+}
+
+/* ==================== 响应式设计模块 ==================== */
+@media screen and (max-width: 768px) {
+	/* 移动端：缩小字号，适应小屏幕 */
+	.content .poetry-line,
+	.content .lc-line {
+		font-size: 1.3em; /* 字号略减 */
+		line-height: 1.8; /* 行高更紧凑 */
+	}
+
+	/* 移动端诗歌：微调字间距 */
+	.poetry-line {
+		letter-spacing: 0.08em; /* 字间距略减 */
+	}
+
+	/* 移动端古文：保持标准字间距 */
+	.lc-line {
+		letter-spacing: 0.03em; /* 保持原间距 */
+	}
+
+	/* 移动端拼音：缩小字号 */
+	ruby rt {
+		font-size: 0.6em; /* 拼音字号略减 */
+		margin-bottom: 0.15em; /* 底部间距略减 */
+	}
+}

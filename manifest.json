@@ -1,0 +1,11 @@
+{
+	"id": "inkruby",
+	"name": "InkRuby",
+	"version": "1.0.0",
+	"minAppVersion": "1.0.0",
+	"description": "一个用于渲染古诗和古文的插件，支持拼音标注。（A plugin for rendering classical Chinese poetry and literary Chinese, with pinyin annotation support.）",
+	"author": "BitFlood",
+	"authorUrl": "https://github.com/BitFlood/inkruby",
+	"fundingUrl": "https://obsidian.md/pricing",
+	"isDesktopOnly": true
+}

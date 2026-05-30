@@ -37,6 +37,9 @@ InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese 
 ```
 ````
 
+![静夜思纯文字效果展示](./readme_img/静夜思纯文字.png)
+
+
 ### 2. 古文模式 (`lc` 或 `LC`)
 ### 2. Literary Chinese Mode (`lc` or `LC`)
 
@@ -54,6 +57,9 @@ InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese 
 ```
 ````
 
+`lc`和`LC`均是一样的效果
+![滕王阁序节选纯文字效果展示](./readme_img/滕王阁序节选纯文字.png)
+
 ### 3. 拼音标注
 ### 3. Pinyin Annotation
 在代码块内部使用 `**汉字拼音**` 的格式。
@@ -61,11 +67,18 @@ Use the `**characterpīnyīn**` format within the code block.
 
 ````markdown
 ```poetry
-忆秦娥·娄山关（节选）
-毛泽东
+忆秦娥·娄山关
+毛泽东 1935年
+
+**西xī**风**烈liè**，长空雁叫**霜shuāng****晨chén**月。
+**霜shuāng****晨chén**月，马蹄声**碎suì**，**喇lǎ**叭声**咽yè**。
+
 雄关**漫màn**道真如**铁tiě**，而今**迈mài**步从头**越yuè**。
+从头**越yuè**，**苍cāng**山如海，**残cán**阳如**血xuè**。
 ```
 ````
+
+![忆秦娥娄山关注拼音展示](./readme_img/忆秦娥娄山关注拼音展示.png)
 
 ### 4. 双下划线注释
 ### 4. Double Underline Annotation
@@ -81,21 +94,29 @@ Use the `==text|annotation==` format to add hover annotations.
 ```
 
 ```poetry
-雄关==**漫màn**道|漫道=莫说、别说、枉说==真如**铁tiě**，而今**迈mài**步从头**越yuè**。
+忆秦娥·娄山关
+毛泽东 1935年
+
+**西xī**风**烈liè**，长空雁叫**霜shuāng****晨chén**月。
+**霜shuāng****晨chén**月，马蹄声**碎suì**，**喇lǎ**叭声**咽yè**。
 ```
 ````
+
+![双下划线注释](./readme_img/双下划线注释.png)
 
 ## 安装方法
 ## Installation Guide
 
 ### 手动安装
 ### Manual Installation
-1. 将`main.js`、`mainifest.json`、`styles.css`文件复制到名为`inkruby`的文件夹
-1. Copy the files `main.js`, `manifest.json`, and `styles.css` into a folder named `inkruby`.
-2. 将`inkruby`文件夹放入你的 Obsidian 库路径的插件文件夹中：`你的obsidian库名/.obsidian/plugins/`。
-2. Place the `inkruby` folder into your Obsidian vault's plugins directory: `YourVaultName/.obsidian/plugins/`.
-3. 在 Obsidian 设置中启用 `InkRuby` 插件。
-3. Enable the `InkRuby` plugin in Obsidian's settings.
+- 在`Release`中将`main.js`、`mainifest.json`、`styles.css`文件复制到名为`inkruby`的文件夹
+- Copy the files main.js, manifest.json, and styles.cssfrom the Releaseinto a folder named inkruby.
+	![release](./readme_img/Release.png)
+- Copy the files `main.js`, `manifest.json`, and `styles.css` into a folder named `inkruby`.
+- 将`inkruby`文件夹放入你的 Obsidian 库路径的插件文件夹中：`你的obsidian库名/.obsidian/plugins/`。
+- Place the `inkruby` folder into your Obsidian vault's plugins directory: `YourVaultName/.obsidian/plugins/`.
+- 在 Obsidian 设置中启用 `InkRuby` 插件。
+- Enable the `InkRuby` plugin in Obsidian's settings.
 
 ## 许可证
 ## License

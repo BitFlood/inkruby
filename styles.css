@@ -102,7 +102,6 @@ ruby rt {
 	text-decoration-color: #aaa; /* 浅灰色下划线 */
 	text-underline-offset: 0.2em; /* 下划线与文字间距 */
 	padding-bottom: 0.05em; /* 底部内边距微调 */
-	cursor: help; /* 帮助光标，提示可交互 */
 	opacity: 0.8; /* 半透明，降低视觉权重 */
 	transition: opacity 0.2s ease; /* 平滑过渡动画 */
 	cursor:

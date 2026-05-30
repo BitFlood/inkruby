@@ -1,13 +1,10 @@
-# 墨注（InkRuby） - Obsidian 诗词古文渲染插件
-# InkRuby — Obsidian Plugin for Rendering Ancient Chinese Poetry & Prose
+# 墨注（InkRuby） - Obsidian 诗词古文渲染插件  InkRuby — Obsidian Plugin for Rendering Ancient Chinese Poetry & Prose
 
-## 简介
-## Introduction
-墨注（InkRuby） 是一款为 Obsidian 设计的插件，用于渲染诗词与古文样式。它通过指定代码块，为文本添加拼音标注和行间注释。
+## 简介 Introduction
+墨注（InkRuby） 是一款为 Obsidian 设计的插件，用于渲染诗词与古文样式。它通过指定代码块，为文本添加拼音标注和行间注释。 
 InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese poetry and prose. By using designated code blocks, it adds Pinyin annotations and interlinear notes to text.
 
-## 功能特性
-## Features
+## 功能特性 Features
 - **双代码块标识符支持**：支持 `poetry`（诗歌）与 `lc`（文言文`Literary Chinese`的首字母缩写，同时支持大写 `LC`）两种代码块模式。
 - **Dual Code Block Identifiers**: Supports two modes: `poetry` (for poetry) and `lc` (short for Literary Chinese; uppercase `LC` is also supported).
 - **拼音标注**：使用 `**字pīnyīn**` 格式，自动将正文中的单个汉字与拼音转换为标准的 HTML `<ruby>` 标签。
@@ -15,8 +12,7 @@ InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese 
 - **双下划线注释**：使用 `==文本|注释==` 格式，为正文文本添加双下划线，鼠标悬浮即可显示注释。
 - **Double Underline Annotation**: Uses the `==text|annotation==` format to add a double underline to text, displaying the annotation when hovered over with the mouse.
 
-## 使用方法
-## Usage Instructions
+## 使用方法 Usage Instructions
 
 - 标题及作者不支持注音和行间注释
 - Titles and authors do not support phonetic notation or interlinear annotations.
@@ -25,8 +21,7 @@ InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese 
 - 如果作者名不详，可用佚名代替作者名
 - If the author is unknown, you may use "佚名" (Anonymous) as a placeholder.
 
-### 1. 诗歌模式 (`poetry`)
-### 1. Poetry Mode (`poetry`)
+### 1. 诗歌模式 (`poetry`)  Poetry Mode (`poetry`)
 
 ````markdown
 ```poetry
@@ -40,8 +35,7 @@ InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese 
 ![静夜思纯文字效果展示](./readme_img/静夜思纯文字.png)
 
 
-### 2. 古文模式 (`lc` 或 `LC`)
-### 2. Literary Chinese Mode (`lc` or `LC`)
+### 2. 古文模式 (`lc` 或 `LC`)  Literary Chinese Mode (`lc` or `LC`)
 
 ````markdown
 ```lc
@@ -58,10 +52,11 @@ InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese 
 ````
 
 `lc`和`LC`均是一样的效果
+Both lcand LCproduce the same effect.
+
 ![滕王阁序节选纯文字效果展示](./readme_img/滕王阁序节选纯文字.png)
 
-### 3. 拼音标注
-### 3. Pinyin Annotation
+### 3. 拼音标注 Pinyin Annotation
 在代码块内部使用 `**汉字拼音**` 的格式。
 Use the `**characterpīnyīn**` format within the code block.
 
@@ -80,8 +75,7 @@ Use the `**characterpīnyīn**` format within the code block.
 
 ![忆秦娥娄山关注拼音展示](./readme_img/忆秦娥娄山关注拼音展示.png)
 
-### 4. 双下划线注释
-### 4. Double Underline Annotation
+### 4. 双下划线注释  Double Underline Annotation
 使用 `==文本|注释==` 格式添加悬浮注释。
 Use the `==text|annotation==` format to add hover annotations.
 
@@ -104,15 +98,12 @@ Use the `==text|annotation==` format to add hover annotations.
 
 ![双下划线注释](./readme_img/双下划线注释.png)
 
-## 安装方法
-## Installation Guide
+## 安装方法 Installation Guide
 
-### 手动安装
-### Manual Installation
+### 手动安装 Manual Installation
 - 在`Release`中将`main.js`、`mainifest.json`、`styles.css`文件复制到名为`inkruby`的文件夹
-- Copy the files main.js, manifest.json, and styles.cssfrom the Releaseinto a folder named inkruby.
-	![release](./readme_img/Release.png)
 - Copy the files `main.js`, `manifest.json`, and `styles.css` into a folder named `inkruby`.
+	![release](./readme_img/Release.png)
 - 将`inkruby`文件夹放入你的 Obsidian 库路径的插件文件夹中：`你的obsidian库名/.obsidian/plugins/`。
 - Place the `inkruby` folder into your Obsidian vault's plugins directory: `YourVaultName/.obsidian/plugins/`.
 - 在 Obsidian 设置中启用 `InkRuby` 插件。

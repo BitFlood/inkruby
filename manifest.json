@@ -5,6 +5,6 @@
 	"minAppVersion": "1.11.4",
 	"description": "Renders classical Chinese texts with Pinyin and line-by-line annotations.",
 	"author": "BitFlood",
-	"authorUrl": "https://github.com/BitFlood/inkruby",
+	"authorUrl": "https://github.com/BitFlood",
 	"isDesktopOnly": true
 }

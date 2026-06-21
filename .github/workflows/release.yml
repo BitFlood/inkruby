@@ -3,24 +3,39 @@ name: Release
 on:
   push:
     tags:
-      - '*'
+      - '*'   # 推送任意标签（如 1.0.1）触发
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      id-token: write
-      attestations: write
+      contents: write          # 创建 Release
+      id-token: write          # 用于生成 attestation
+      attestations: write      # 上传 attestation
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - run: npm install
-      - run: npm run build
+          cache: 'npm'
 
-      # 为构建产物生成证明
+      # 安装 esbuild（轻量打包工具）
+      - name: Install esbuild
+        run: npm install -g esbuild
+
+      # 打包所有 TypeScript 文件为单个 main.js
+      - name: Bundle plugin
+        run: esbuild main.ts --bundle --outfile=main.js --platform=node --external=obsidian
+
+      # 确保 styles.css 在根目录（如果已在根目录，这步无害）
+      - name: Copy stylesheet
+        run: cp styles.css . || true
+
+      # 为三个文件生成来源证明
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
@@ -29,7 +44,7 @@ jobs:
             styles.css
             manifest.json
 
-      # 创建 GitHub Release
+      # 创建 GitHub Release，名称直接使用标签名（如 1.0.1）
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:

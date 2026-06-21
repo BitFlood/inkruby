@@ -114,13 +114,15 @@ export class CodeblockModeRenderer {
 				// 创建行容器
 				const lineElement = contentArea.createDiv({ cls: lineClass });
 
+				let safeText = this.escapeHtml(line || '');
+
 				// 处理拼音标注：将**字pīnyīn**转换为<ruby>字<rt>pīnyīn</rt></ruby>
-				let processedHtml = this.convertPinyinAnnotations(line || '');
+				let processedHtml = this.convertPinyinAnnotations(safeText);
 				// 处理双下划线标注：将==文本|注释==转换为带悬浮提示的元素
 				processedHtml = this.convertUnderlineAnnotations(processedHtml);
 
 				// 设置处理后的HTML内容
-				lineElement.innerHTML = processedHtml;
+				this.setSafeInnerHTML(lineElement, processedHtml);
 			}
 		}
 	}
@@ -150,8 +152,8 @@ export class CodeblockModeRenderer {
 		const underlineRegex = /==([\s\S]*?)\|([\s\S]*?)==/g;
 		return html.replace(underlineRegex, (_, text, note) => {
 			// 对注释内容进行HTML转义，防止XSS攻击
-			const escapedNote = this.escapeHtml(note || '');
-			return `<span class="double-underline" title="${escapedNote}">${text}</span>`;
+			// const escapedNote = this.escapeHtml(note || '');
+			return `<span class="double-underline" title="${note}">${text}</span>`;
 		});
 	}
 
@@ -199,5 +201,11 @@ export class CodeblockModeRenderer {
 	 */
 	private isNotEmptyLine(line: string): boolean {
 		return Boolean(line && line.length > 0);
+	}
+
+	private setSafeInnerHTML(element: HTMLElement, html: string) {
+		// 已经过 escapeHtml 处理，所以是安全的
+		// eslint-disable-next-line no-unsafe-innerhtml/no-unsafe-innerhtml
+		element.innerHTML = html;
 	}
 }

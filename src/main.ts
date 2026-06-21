@@ -23,7 +23,12 @@ export default class PoemPlugin extends Plugin {
 			this.registerMarkdownCodeBlockProcessor(
 				blockType,
 				(source, el, ctx) => {
-					this.renderer.processBlock(lineClass, source, el, ctx);
+					this.renderer.handleCodeBlockRendering(
+						lineClass,
+						source,
+						el,
+						ctx,
+					);
 				},
 			);
 		});

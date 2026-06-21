@@ -1,1 +1,40 @@
+name: Release
 
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run build
+
+      # 为构建产物生成证明
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: |
+            main.js
+            styles.css
+            manifest.json
+
+      # 创建 GitHub Release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "${{ github.ref_name }}"
+          files: |
+            main.js
+            styles.css
+            manifest.json

@@ -1,19 +1,14 @@
 import { MarkdownPostProcessorContext } from 'obsidian';
-
 /**
- * 诗词/古文代码块渲染器
- * 负责处理 poetry 和 lc/LC 代码块的渲染逻辑，
- * 支持拼音标注（**字pīnyīn**）和双下划线注释（==文本|注释==）
+ * 处理代码块渲染的核心方法
+ * @param lineClass CSS行类名，用于区分诗歌/古文样式
+ * @param source 代码块的原始文本内容
+ * @param container 渲染内容的HTML容器
+ * @param context Markdown渲染上下文
  */
+
 export class CodeblockModeRenderer {
-	/**
-	 * 处理代码块渲染的核心方法
-	 * @param lineClass CSS行类名，用于区分诗歌/古文样式
-	 * @param source 代码块的原始文本内容
-	 * @param container 渲染内容的HTML容器
-	 * @param context Markdown渲染上下文（保留参数，暂未使用）
-	 */
-	public processBlock(
+	public handleCodeBlockRendering(
 		lineClass: string,
 		source: string,
 		container: HTMLElement,
@@ -69,7 +64,6 @@ export class CodeblockModeRenderer {
 
 		// 渲染标题和作者部分
 		this.renderTitleAndAuthorSections(lines, contentContainer);
-
 		// 渲染正文部分（包含拼音标注功能）
 		this.renderContentBody(lineClass, lines, contentContainer);
 	}
@@ -119,10 +113,12 @@ export class CodeblockModeRenderer {
 			if (this.isNotEmptyLine(line || '')) {
 				// 创建行容器
 				const lineElement = contentArea.createDiv({ cls: lineClass });
+
 				// 处理拼音标注：将**字pīnyīn**转换为<ruby>字<rt>pīnyīn</rt></ruby>
 				let processedHtml = this.convertPinyinAnnotations(line || '');
 				// 处理双下划线标注：将==文本|注释==转换为带悬浮提示的元素
 				processedHtml = this.convertUnderlineAnnotations(processedHtml);
+
 				// 设置处理后的HTML内容
 				lineElement.innerHTML = processedHtml;
 			}

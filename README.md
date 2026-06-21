@@ -19,12 +19,13 @@ InkRuby is an Obsidian plugin designed to render the styling of ancient Chinese 
 
 ## 使用方法 Usage Instructions
 
-- 标题及作者不支持注音和行间注释
-- Titles and authors do not support phonetic notation or interlinear annotations.
-- 标题和作者应该分别位于代码块的第一和第二行
-- The title and author should be placed on the first and second lines of the code block, respectively.
-- 如果作者名不详，可用佚名代替作者名
-- If the author is unknown, you may use "佚名" (Anonymous) as a placeholder.
+>[!importamt]
+>标题及作者不支持注音和行间注释
+>Titles and authors do not support phonetic notation or interlinear annotations.
+>标题和作者应该分别位于代码块的第一和第二行
+>The title and author should be placed on the first and second lines of the code block, respectively.
+>如果作者名不详，可用佚名代替作者名
+>If the author is unknown, you may use "佚名" (Anonymous) as a placeholder.
 
 ### 1. 诗歌模式 (`poetry`)  Poetry Mode (`poetry`)
 
@@ -108,16 +109,59 @@ Use the `==text|annotation==` format to add hover annotations.
 
 ![双下划线注释](./readme_img/双下划线注释.png)
 
+
+
+### 小说阅读模式 Novel Reading Mode
+
+通过将markdown文件的标题居中，段落首行缩进2个中文字符从而达到将markdown文件当成一本小说来阅读。
+
+By centering the titles of the markdown file and indenting the first line of each paragraph by 2 Chinese characters, the markdown file can be read like a novel.
+
+#### 在文件上启用 Enabling on a File
+
+在markdown文件首行添加笔记属性值为 `inkruby-novel` 的 `cssclasses` 属性
+
+Add a `cssclasses` property with the value `inkruby-novel` to the front matter at the very beginning of the markdown file.
+
+在obsidian文件的首行添加三条短横线 `---` 即可被obsidian自动识别并生成笔记属性,然后添加属性 `cssclasses` 并将其值设置为 `inkruby-novel` 
+
+Add three dashes `---` at the very first line of the Obsidian file, which will be automatically recognized and generate the note properties; then add the property `cssclasses` and set its value to `inkruby-novel` .
+
+
+>[!tip]
+>文件首行的三条短横线 `---` 之前不要有空格或其他字符
+>Do not place spaces or other characters before the three dashes `---` at the start of the file.
+>不想启用了，将 `inkruby-novel` 删除即可；至于笔记属性，请根据你的实际需要来决定是否保留
+>If you no longer want this mode enabled, simply delete `inkruby-novel` ; as for the note properties, decide whether to keep them based on your actual needs.
+>编辑视图中，光标所在的正在编辑的段落不会生效，不正在编辑的段落才生效
+>In the editing view, the paragraph where the cursor is currently placed will not take effect; only paragraphs that are not being edited will take effect.
+
+
+![小说阅读模式启用](./readme_img/小说阅读模式启用.png)
+
+#### 效果展示 Effect Demonstration
+
+只对双链、callout、脚注、表格、列表、任务列表、代码块、公式简单试了一下是否对其语法效果产生影响
+A simple test was performed on wikilinks, callouts, footnotes, tables, lists, task lists, code blocks, and formulas to see if it affects their syntax or rendering.
+
+![效果展示](./readme_img/效果展示.png)
+
+
 ## 安装方法 Installation Guide
 
 ### 手动安装 Manual Installation
-- 在[Release](https://github.com/BitFlood/inkruby/releases)中将`main.js`、`mainifest.json`、`styles.css`文件复制到名为`inkruby`的文件夹
-- In [Release](https://github.com/BitFlood/inkruby/releases), copy the `main.js`, `manifest.json`, and `styles.css` files to a folder named `inkruby`
-	![Release](./readme_img/Release.png)
+- 在[Release](https://github.com/BitFlood/inkruby/releases)中将`main.js`、`manifest.json`、`styles.css`文件复制并保存到你的计算机中名为`inkruby`的文件夹（如没有请自行创建）
+- Copy the `main.js`, `manifest.json`, `styles.css` files from [Release](https://github.com/BitFlood/inkruby/releases) and save them into a folder named `inkruby` on your computer (create the folder if it doesn't already exist).
+
+![Release](./readme_img/Release.png)
+
 - 将`inkruby`文件夹放入你的 Obsidian 库路径的插件文件夹中：`你的obsidian库名/.obsidian/plugins/`。
 - Place the `inkruby` folder into your Obsidian vault's plugins directory: `YourVaultName/.obsidian/plugins/`.
+
 - 在 Obsidian 设置中启用 `InkRuby` 插件。
 - Enable the `InkRuby` plugin in Obsidian's settings.
+
+
 
 ## 权限与隐私 Permissions and Privacy
 

@@ -8,7 +8,7 @@
 }
 
 /* ==================== 字体体系模块 ==================== */
-/* 标题统一使用楷体，增强古典气息 */
+/* 标题统一使用楷体 */
 .title {
 	font-family: '楷体', 'STKaiti', 'KaiTi', serif;
 }
@@ -97,10 +97,8 @@ ruby rt {
 
 /* ==================== 双下划线注释模块 ==================== */
 .double-underline {
-	text-decoration: underline double; /* 双下划线样式 */
-	text-decoration-thickness: 1px; /* 下划线粗细 1px */
-	text-decoration-color: #aaa; /* 浅灰色下划线 */
-	text-underline-offset: 0.2em; /* 下划线与文字间距 */
+	border-bottom: 2px double #aaa; /* 模拟双下划线 */
+
 	padding-bottom: 0.05em; /* 底部内边距微调 */
 	opacity: 0.8; /* 半透明，降低视觉权重 */
 	transition: opacity 0.2s ease; /* 平滑过渡动画 */
@@ -139,4 +137,62 @@ ruby rt {
 		font-size: 0.6em; /* 拼音字号略减 */
 		margin-bottom: 0.15em; /* 底部间距略减 */
 	}
+}
+
+/* ==================== inkruby-novel 专属样式 ==================== */
+/* 编辑视图 */
+/* 编辑视图标题居中 */
+/* 标题容器：使用 flex 居中，并设为相对定位 */
+.inkruby-novel div.HyperMD-header.cm-line {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative; /* 为折叠指示器的绝对定位提供参考 */
+}
+
+/* 折叠指示器：脱离流，固定到左侧，不影响居中 */
+.inkruby-novel div.HyperMD-header.cm-line .cm-fold-indicator {
+	position: absolute;
+	left: 0; /* 保持左侧 */
+	top: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center; /* 垂直居中图标 */
+}
+
+/* （可选）清除缓冲元素的占位影响 */
+.inkruby-novel div.HyperMD-header.cm-line img.cm-widgetBuffer {
+	display: none; /* 这些空图不影响显示，可隐藏 */
+}
+
+/* 编辑视图普通段落首行缩进两个中文字符,排除对双链、脚注、列表和公式的影响 */
+.inkruby-novel
+	div[class='cm-line'][dir='ltr']:not(
+		:has(
+			.cm-underline,
+			.cm-math,
+			.cm-blockid,
+			.cm-footref,
+			.HyperMD-list-line
+		)
+	) {
+	text-indent: 2em; /* 首行缩进2字符 */
+}
+
+/* 阅读视图 */
+/* 阅读视图标题 */
+.inkruby-novel div[class^='el-h'] h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-align: center; /* 标题居中 */
+}
+
+/* 阅读视图普通段落, 排除对双链和脚注的影响 */
+.inkruby-novel
+	div[class='el-p']
+	p[dir='auto']:not(:has(.internal-link, .footnote, .footnote-ref)) {
+	text-indent: 2em; /* 首行缩进两个中文字符 */
 }
